@@ -6,6 +6,18 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { languages, Language } from '@/lib/i18n';
 
+const PHONE_NUMBER = '+16135610205';
+
+const getSmsLink = (lang: string) => {
+  const templates: Record<string, string> = {
+    en: "Hi! I'd like to request a free cleaning estimate for my property in Ottawa. Can you help me?",
+    fr: "Bonjour! J'aimerais demander un devis gratuit pour le nettoyage de ma propriété à Ottawa. Pouvez-vous m'aider?",
+    es: "¡Hola! Me gustaría solicitar un presupuesto gratuito de limpieza para mi propiedad en Ottawa. ¿Pueden ayudarme?",
+  };
+  const message = encodeURIComponent(templates[lang] || templates.en);
+  return `sms:${PHONE_NUMBER}?body=${message}`;
+};
+
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
@@ -120,8 +132,10 @@ export function Header() {
             </button>
 
             {/* CTA Button */}
-            <Button variant="default" className="shadow-gold-glow">
-              {t.nav.getQuote}
+            <Button variant="default" className="shadow-gold-glow" asChild>
+              <a href={getSmsLink(language)}>
+                {t.nav.getQuote}
+              </a>
             </Button>
           </div>
 
@@ -188,8 +202,10 @@ export function Header() {
                     ))}
                   </div>
                   <div className="px-4">
-                    <Button variant="default" className="w-full shadow-gold-glow">
-                      {t.nav.getQuote}
+                    <Button variant="default" className="w-full shadow-gold-glow" asChild>
+                      <a href={getSmsLink(language)}>
+                        {t.nav.getQuote}
+                      </a>
                     </Button>
                   </div>
                 </div>
