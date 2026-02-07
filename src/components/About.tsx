@@ -44,7 +44,7 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-24 lg:py-32">
+    <section id="about" className="pt-24 pb-16 lg:pt-32 lg:pb-20">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -99,7 +99,7 @@ export function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 max-w-3xl mx-auto text-center"
+          className="mt-12 max-w-3xl mx-auto text-center"
         >
           <div className="relative">
             <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-8xl text-accent/20 font-display">

@@ -56,13 +56,12 @@ export function Header() {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-gold-light flex items-center justify-center">
-              <span className="text-accent-foreground font-display font-bold text-lg">G</span>
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">
-              Go Tidy Up
-            </span>
+          <a href="#" className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Go Tidy Up logo"
+              className="block h-20 w-auto object-contain mt-4"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -171,7 +170,7 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden mt-2 bg-background/95 backdrop-blur border border-border rounded-xl shadow-elegant"
             >
               <div className="py-4 space-y-2">
                 {navItems.map((item) => (

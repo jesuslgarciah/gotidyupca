@@ -33,11 +33,12 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-display font-bold text-lg">G</span>
-              </div>
-              <span className="font-display font-bold text-xl">Go Tidy Up</span>
+            <div className="mb-1">
+              <img
+                src="/logo.png"
+                alt="Go Tidy Up logo"
+                className="block h-20 w-auto object-contain mt-4"
+              />
             </div>
             <p className="text-primary-foreground/70 max-w-sm mb-6">
               {t.footer.tagline}
@@ -100,7 +101,7 @@ export function Footer() {
             <h4 className="font-display font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-primary-foreground/70">
               <li>Ottawa, Ontario, Canada</li>
-              <li>Mon - Sat: 8am - 6pm</li>
+              <li>Mon - Fri: 9am - 5pm</li>
               <li>
                 <a href={`mailto:${EMAIL}`} className="hover:text-primary-foreground transition-colors">
                   {EMAIL}
@@ -109,6 +110,11 @@ export function Footer() {
               <li>
                 <a href={getSmsLink(language)} className="hover:text-primary-foreground transition-colors">
                   +1 (613) 561-0205
+                </a>
+              </li>
+              <li>
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+                  @gotidyupca
                 </a>
               </li>
             </ul>

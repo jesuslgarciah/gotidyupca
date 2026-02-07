@@ -20,8 +20,8 @@ export function Hero() {
   const { t, language } = useLanguage();
 
   const stats = [
-    { icon: Users, value: '500+', label: t.hero.stats.clients },
-    { icon: Clock, value: '5+', label: t.hero.stats.years },
+    { icon: Users, value: '50+', label: t.hero.stats.clients },
+    { icon: Clock, value: '2+', label: t.hero.stats.years },
     { icon: Star, value: '4.9', label: t.hero.stats.rating },
   ];
 

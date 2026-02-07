@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, Key, Hotel, ArrowRight } from 'lucide-react';
+import { Home, Building2, Key, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -25,12 +25,6 @@ export function Services() {
       description: t.services.airbnb.description,
       color: 'from-rose-500/20 to-pink-500/20',
     },
-    {
-      icon: Hotel,
-      title: t.services.hotel.title,
-      description: t.services.hotel.description,
-      color: 'from-violet-500/20 to-purple-500/20',
-    },
   ];
 
   const containerVariants = {
@@ -49,7 +43,7 @@ export function Services() {
   };
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-muted/30">
+    <section id="services" className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -72,7 +66,7 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
@@ -122,18 +116,11 @@ export function Services() {
               <h3 className="font-display text-2xl md:text-3xl font-bold mb-2">
                 {t.pricing.title}
               </h3>
-              <p className="text-primary-foreground/80">{t.pricing.minimum}</p>
+              <p className="text-primary-foreground/80">{t.pricing.subtitle}</p>
             </div>
-            <div className="flex flex-wrap gap-6">
-              <div className="text-center">
-                <p className="text-3xl md:text-4xl font-display font-bold">$35<span className="text-lg">{t.pricing.perHour}</span></p>
-                <p className="text-sm text-primary-foreground/80">{t.pricing.withoutSupplies}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl md:text-4xl font-display font-bold">$40<span className="text-lg">{t.pricing.perHour}</span></p>
-                <p className="text-sm text-primary-foreground/80">{t.pricing.withSupplies}</p>
-              </div>
-            </div>
+            <Button size="lg" className="shadow-gold-glow" asChild>
+              <a href="#contact">{t.pricing.cta}</a>
+            </Button>
           </div>
         </motion.div>
       </div>

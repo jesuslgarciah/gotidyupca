@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, MessageSquare, Send, Instagram } from 'lucide-react';
+import { MapPin, Clock, MessageSquare, Send, Instagram, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -73,15 +73,26 @@ export function Contact() {
             {/* Social Links */}
             <div>
               <p className="text-sm text-muted-foreground mb-4">{t.footer.followUs}</p>
-              <a
-                href="https://www.instagram.com/gotidyupca"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-accent text-accent-foreground hover:opacity-90 transition-opacity"
-              >
-                <Instagram className="w-5 h-5" />
-                <span className="font-medium">@gotidyupca</span>
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.instagram.com/gotidyupca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-accent text-accent-foreground hover:opacity-90 transition-opacity"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="font-medium">@gotidyupca</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/GotidyupCa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-accent text-accent-foreground hover:opacity-90 transition-opacity"
+                >
+                  <Facebook className="w-5 h-5" />
+                  <span className="font-medium">@gotidyupca</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -147,7 +158,6 @@ export function Contact() {
                     <option value="residential">Residential Cleaning</option>
                     <option value="commercial">Commercial Cleaning</option>
                     <option value="airbnb">Airbnb & Rentals</option>
-                    <option value="hotel">Hotels & Hospitality</option>
                   </select>
                 </div>
 

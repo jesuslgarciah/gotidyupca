@@ -44,10 +44,6 @@ export const translations = {
         title: 'Airbnb & Rentals',
         description: 'Quick turnovers with exceptional results. Give your guests a 5-star experience every time.',
       },
-      hotel: {
-        title: 'Hotels & Hospitality',
-        description: 'Elevate your guest experience with our premium hospitality cleaning standards.',
-      },
       learnMore: 'Learn More',
     },
     about: {
@@ -112,7 +108,7 @@ export const translations = {
       },
       info: {
         location: 'Ottawa, Ontario',
-        hours: 'Mon - Sat: 8am - 6pm',
+        hours: 'Mon - Fri: 9am - 5pm',
         response: 'We respond within 24 hours',
       },
     },
@@ -124,10 +120,8 @@ export const translations = {
     },
     pricing: {
       title: 'Transparent Pricing',
-      withSupplies: 'We bring supplies',
-      withoutSupplies: 'You provide supplies',
-      perHour: '/hour',
-      minimum: '3 hour minimum',
+      subtitle: 'Pricing varies by space and scope. Tell us what you need and we will send a custom quote.',
+      cta: 'Get a Quote',
     },
   },
   fr: {
@@ -166,10 +160,6 @@ export const translations = {
       airbnb: {
         title: 'Airbnb & Locations',
         description: 'Rotations rapides avec des résultats exceptionnels. Offrez à vos invités une expérience 5 étoiles.',
-      },
-      hotel: {
-        title: 'Hôtels & Hospitalité',
-        description: 'Élevez l\'expérience de vos clients avec nos standards de nettoyage hôtelier premium.',
       },
       learnMore: 'En Savoir Plus',
     },
@@ -235,7 +225,7 @@ export const translations = {
       },
       info: {
         location: 'Ottawa, Ontario',
-        hours: 'Lun - Sam: 8h - 18h',
+        hours: 'Lun - Ven: 9h - 17h',
         response: 'Nous répondons sous 24 heures',
       },
     },
@@ -247,10 +237,8 @@ export const translations = {
     },
     pricing: {
       title: 'Tarifs Transparents',
-      withSupplies: 'Nous apportons les produits',
-      withoutSupplies: 'Vous fournissez les produits',
-      perHour: '/heure',
-      minimum: 'Minimum 3 heures',
+      subtitle: 'Les prix varient selon l’espace et le service. Dites-nous vos besoins et nous enverrons un devis.',
+      cta: 'Obtenir un Devis',
     },
   },
   es: {
@@ -289,10 +277,6 @@ export const translations = {
       airbnb: {
         title: 'Airbnb y Alquileres',
         description: 'Rotaciones rápidas con resultados excepcionales. Da a tus huéspedes una experiencia 5 estrellas.',
-      },
-      hotel: {
-        title: 'Hoteles y Hospitalidad',
-        description: 'Eleva la experiencia de tus huéspedes con nuestros estándares de limpieza hotelera premium.',
       },
       learnMore: 'Más Información',
     },
@@ -358,7 +342,7 @@ export const translations = {
       },
       info: {
         location: 'Ottawa, Ontario',
-        hours: 'Lun - Sáb: 8am - 6pm',
+        hours: 'Lun - Vie: 9am - 5pm',
         response: 'Respondemos en 24 horas',
       },
     },
@@ -370,10 +354,8 @@ export const translations = {
     },
     pricing: {
       title: 'Precios Transparentes',
-      withSupplies: 'Nosotros llevamos productos',
-      withoutSupplies: 'Tú provees productos',
-      perHour: '/hora',
-      minimum: 'Mínimo 3 horas',
+      subtitle: 'Los precios varían según el espacio y el servicio. Cuéntanos lo que necesitas y te enviamos una cotización.',
+      cta: 'Solicitar Cotización',
     },
   },
 };
