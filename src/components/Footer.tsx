@@ -1,8 +1,23 @@
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, MessageCircle, Facebook } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
+const PHONE_NUMBER = '+16135610205';
+const EMAIL = 'gotidyappca@gmail.com';
+const INSTAGRAM_URL = 'https://www.instagram.com/gotidyupca';
+const FACEBOOK_URL = 'https://www.facebook.com/GotidyupCa/';
+
+const getSmsLink = (lang: string) => {
+  const templates: Record<string, string> = {
+    en: "Hi! I'd like to request a free cleaning estimate for my property in Ottawa. Can you help me?",
+    fr: "Bonjour! J'aimerais demander un devis gratuit pour le nettoyage de ma propriété à Ottawa. Pouvez-vous m'aider?",
+    es: "¡Hola! Me gustaría solicitar un presupuesto gratuito de limpieza para mi propiedad en Ottawa. ¿Pueden ayudarme?",
+  };
+  const message = encodeURIComponent(templates[lang] || templates.en);
+  return `sms:${PHONE_NUMBER}?body=${message}`;
+};
+
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const quickLinks = [
     { label: t.nav.services, href: '#services' },
@@ -29,24 +44,36 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://www.instagram.com/gotidyupca"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="mailto:hello@gotidyup.ca"
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="tel:+16135550123"
+                href={getSmsLink(language)}
                 className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors"
+                aria-label="Send SMS"
               >
-                <Phone className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -75,8 +102,13 @@ export function Footer() {
               <li>Ottawa, Ontario, Canada</li>
               <li>Mon - Sat: 8am - 6pm</li>
               <li>
-                <a href="mailto:hello@gotidyup.ca" className="hover:text-primary-foreground transition-colors">
-                  hello@gotidyup.ca
+                <a href={`mailto:${EMAIL}`} className="hover:text-primary-foreground transition-colors">
+                  {EMAIL}
+                </a>
+              </li>
+              <li>
+                <a href={getSmsLink(language)} className="hover:text-primary-foreground transition-colors">
+                  +1 (613) 561-0205
                 </a>
               </li>
             </ul>

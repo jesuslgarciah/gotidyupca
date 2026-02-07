@@ -4,8 +4,20 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 import heroImage from '@/assets/hero-living-room.jpg';
 
+const PHONE_NUMBER = '+16135610205';
+
+const getSmsLink = (lang: string) => {
+  const templates: Record<string, string> = {
+    en: "Hi! I'd like to request a free cleaning estimate for my property in Ottawa. Can you help me?",
+    fr: "Bonjour! J'aimerais demander un devis gratuit pour le nettoyage de ma propriété à Ottawa. Pouvez-vous m'aider?",
+    es: "¡Hola! Me gustaría solicitar un presupuesto gratuito de limpieza para mi propiedad en Ottawa. ¿Pueden ayudarme?",
+  };
+  const message = encodeURIComponent(templates[lang] || templates.en);
+  return `sms:${PHONE_NUMBER}?body=${message}`;
+};
+
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
     { icon: Users, value: '500+', label: t.hero.stats.clients },
@@ -74,16 +86,22 @@ export function Hero() {
             <Button 
               size="lg" 
               className="group shadow-gold-glow text-base px-8"
+              asChild
             >
-              {t.hero.cta}
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href={getSmsLink(language)}>
+                {t.hero.cta}
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               className="text-base px-8"
+              asChild
             >
-              {t.hero.ctaSecondary}
+              <a href="#services">
+                {t.hero.ctaSecondary}
+              </a>
             </Button>
           </motion.div>
 
