@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { languages, Language } from '@/lib/i18n';
+import { featureFlags } from '@/config/featureFlags';
 
 const PHONE_NUMBER = '+16135610205';
 
@@ -37,7 +38,9 @@ export function Header() {
     { href: '#services', label: t.nav.services },
     { href: '#gallery', label: t.nav.gallery },
     { href: '#about', label: t.nav.about },
-    { href: '#testimonials', label: t.nav.testimonials },
+    ...(featureFlags.showTestimonials
+      ? [{ href: '#testimonials', label: t.nav.testimonials }]
+      : []),
     { href: '#careers', label: t.nav.careers },
     { href: '#contact', label: t.nav.contact },
   ];

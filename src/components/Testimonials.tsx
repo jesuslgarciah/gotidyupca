@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-
-const SHOW_TESTIMONIALS = false;
+import { featureFlags } from '@/config/featureFlags';
 
 const testimonials = [
   {
@@ -38,7 +37,7 @@ const testimonials = [
 export function Testimonials() {
   const { t } = useLanguage();
 
-  if (!SHOW_TESTIMONIALS) {
+  if (!featureFlags.showTestimonials) {
     return null;
   }
 
