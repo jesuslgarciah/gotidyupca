@@ -35,7 +35,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-1">
               <img
-                src="/logo.png"
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Go Tidy Up logo"
                 className="block h-20 w-auto object-contain mt-4"
               />

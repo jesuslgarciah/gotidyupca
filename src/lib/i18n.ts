@@ -10,6 +10,7 @@ export const translations = {
   en: {
     nav: {
       services: 'Services',
+      gallery: 'Our Work',
       about: 'About',
       testimonials: 'Testimonials',
       careers: 'Careers',
@@ -45,6 +46,10 @@ export const translations = {
         description: 'Quick turnovers with exceptional results. Give your guests a 5-star experience every time.',
       },
       learnMore: 'Learn More',
+    },
+    gallery: {
+      title: 'Our Work',
+      subtitle: 'Real results from recent cleaning projects',
     },
     about: {
       title: 'Why Choose Go Tidy Up?',
@@ -127,6 +132,7 @@ export const translations = {
   fr: {
     nav: {
       services: 'Services',
+      gallery: 'Nos Réalisations',
       about: 'À propos',
       testimonials: 'Témoignages',
       careers: 'Carrières',
@@ -162,6 +168,10 @@ export const translations = {
         description: 'Rotations rapides avec des résultats exceptionnels. Offrez à vos invités une expérience 5 étoiles.',
       },
       learnMore: 'En Savoir Plus',
+    },
+    gallery: {
+      title: 'Nos Réalisations',
+      subtitle: 'Des résultats réels issus de projets récents',
     },
     about: {
       title: 'Pourquoi Choisir Go Tidy Up?',
@@ -244,6 +254,7 @@ export const translations = {
   es: {
     nav: {
       services: 'Servicios',
+      gallery: 'Nuestro Trabajo',
       about: 'Nosotros',
       testimonials: 'Testimonios',
       careers: 'Carreras',
@@ -279,6 +290,10 @@ export const translations = {
         description: 'Rotaciones rápidas con resultados excepcionales. Da a tus huéspedes una experiencia 5 estrellas.',
       },
       learnMore: 'Más Información',
+    },
+    gallery: {
+      title: 'Nuestro Trabajo',
+      subtitle: 'Resultados reales de proyectos recientes',
     },
     about: {
       title: '¿Por Qué Elegir Go Tidy Up?',

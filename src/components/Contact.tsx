@@ -10,17 +10,51 @@ import { toast } from 'sonner';
 export function Contact() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success('Thank you! We\'ll be in touch within 24 hours.');
+
+    const subject = encodeURIComponent('Quote request');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+    );
+    const emailDomain = formData.email.split('@')[1]?.toLowerCase() ?? '';
+    const providerUrls: Record<string, string> = {
+      'gmail.com': `https://mail.google.com/mail/?view=cm&fs=1&to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'googlemail.com': `https://mail.google.com/mail/?view=cm&fs=1&to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'outlook.com': `https://outlook.live.com/mail/0/deeplink/compose?to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'hotmail.com': `https://outlook.live.com/mail/0/deeplink/compose?to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'live.com': `https://outlook.live.com/mail/0/deeplink/compose?to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'yahoo.com': `https://compose.mail.yahoo.com/?to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+      'icloud.com': `https://www.icloud.com/mail/compose?to=gotidyapp.ca@gmail.com&subject=${subject}&body=${body}`,
+    };
+
+    const providerUrl = providerUrls[emailDomain];
+    const opened = providerUrl
+      ? window.open(providerUrl, '_blank', 'noopener,noreferrer')
+      : null;
+    if (!opened) {
+      window.location.href = `mailto:gotidyapp.ca@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    toast.success("Thanks! We'll be in touch within 24 hours.");
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
   };
 
   const contactInfo = [
@@ -114,9 +148,12 @@ export function Contact() {
                   </label>
                   <Input 
                     type="text" 
+                    name="name"
                     required
                     placeholder="John Doe"
                     className="h-12"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -128,9 +165,12 @@ export function Contact() {
                     </label>
                     <Input 
                       type="email" 
+                      name="email"
                       required
                       placeholder="john@example.com"
                       className="h-12"
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -139,8 +179,11 @@ export function Contact() {
                     </label>
                     <Input 
                       type="tel" 
+                      name="phone"
                       placeholder="(613) 555-0123"
                       className="h-12"
+                      value={formData.phone}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -151,8 +194,11 @@ export function Contact() {
                     {t.contact.form.service}
                   </label>
                   <select 
+                    name="service"
                     className="w-full h-12 px-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     required
+                    value={formData.service}
+                    onChange={handleChange}
                   >
                     <option value="">Select a service...</option>
                     <option value="residential">Residential Cleaning</option>
@@ -170,6 +216,9 @@ export function Contact() {
                     rows={4}
                     placeholder="Tell us about your space, size, and any special requirements..."
                     className="resize-none"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                   />
                 </div>
 

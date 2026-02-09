@@ -35,6 +35,7 @@ export function Header() {
 
   const navItems = [
     { href: '#services', label: t.nav.services },
+    { href: '#gallery', label: t.nav.gallery },
     { href: '#about', label: t.nav.about },
     { href: '#testimonials', label: t.nav.testimonials },
     { href: '#careers', label: t.nav.careers },
@@ -58,7 +59,7 @@ export function Header() {
           {/* Logo */}
           <a href="#" className="flex items-center">
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Go Tidy Up logo"
               className="block h-20 w-auto object-contain mt-4"
             />

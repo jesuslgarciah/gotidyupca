@@ -13,11 +13,6 @@ export default {
       },
     },
     extend: {
-      height: {
-        45: "180px",
-        47: "188px",
-        190: "190px",
-      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Montserrat', 'sans-serif'],

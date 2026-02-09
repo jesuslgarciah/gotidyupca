@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
+const SHOW_TESTIMONIALS = false;
+
 const testimonials = [
   {
     name: 'Sarah Mitchell',
@@ -35,6 +37,10 @@ const testimonials = [
 
 export function Testimonials() {
   const { t } = useLanguage();
+
+  if (!SHOW_TESTIMONIALS) {
+    return null;
+  }
 
   return (
     <section id="testimonials" className="py-24 lg:py-32 bg-muted/30">

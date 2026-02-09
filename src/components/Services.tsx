@@ -11,7 +11,7 @@ export function Services() {
       icon: Home,
       title: t.services.residential.title,
       description: t.services.residential.description,
-      color: 'from-blue-500/20 to-cyan-500/20',
+      color: 'from-accent/20 to-yellow-500/20',
     },
     {
       icon: Building2,
@@ -23,7 +23,7 @@ export function Services() {
       icon: Key,
       title: t.services.airbnb.title,
       description: t.services.airbnb.description,
-      color: 'from-rose-500/20 to-pink-500/20',
+      color: 'from-accent/20 to-yellow-500/20',
     },
   ];
 
