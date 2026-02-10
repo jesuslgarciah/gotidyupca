@@ -1,5 +1,6 @@
 import { Instagram, Mail, MessageCircle, Facebook } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { featureFlags } from '@/config/featureFlags';
 
 const PHONE_NUMBER = '+16135610205';
 const EMAIL = 'gotidyappca@gmail.com';
@@ -22,7 +23,9 @@ export function Footer() {
   const quickLinks = [
     { label: t.nav.services, href: '#services' },
     { label: t.nav.about, href: '#about' },
-    { label: t.nav.testimonials, href: '#testimonials' },
+    ...(featureFlags.showTestimonials
+      ? [{ label: t.nav.testimonials, href: '#testimonials' }]
+      : []),
     { label: t.nav.careers, href: '#careers' },
     { label: t.nav.contact, href: '#contact' },
   ];
@@ -37,7 +40,22 @@ export function Footer() {
               <img
                 src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Go Tidy Up logo"
-                className="block h-20 w-auto object-contain mt-4"
+                className="block h-20 w-auto object-contain mt-4 dark:hidden"
+              />
+              <div
+                className="hidden dark:block h-20 mt-4 aspect-[23/9]"
+                style={{
+                  backgroundColor: '#161B1D',
+                  WebkitMaskImage: `url(${import.meta.env.BASE_URL}logo.png)`,
+                  maskImage: `url(${import.meta.env.BASE_URL}logo.png)`,
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                }}
+                aria-hidden="true"
               />
             </div>
             <p className="text-primary-foreground/70 max-w-sm mb-6">

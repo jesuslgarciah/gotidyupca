@@ -64,7 +64,7 @@ export function Header() {
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Go Tidy Up logo"
-              className="block h-20 w-auto object-contain mt-4"
+              className="block h-20 w-auto object-contain mt-4 dark:brightness-125 dark:contrast-125"
             />
           </a>
 

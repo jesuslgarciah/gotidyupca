@@ -72,10 +72,10 @@ export function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-card rounded-2xl p-8 shadow-elegant hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="group relative bg-card rounded-2xl p-8 shadow-elegant hover:shadow-lg transition-all duration-300"
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               
               <div className="relative">
                 {/* Icon */}
@@ -94,7 +94,7 @@ export function Services() {
                 {/* Link */}
                 <Button 
                   variant="ghost" 
-                  className="group/btn p-0 h-auto font-medium text-accent hover:text-accent"
+                  className="group/btn p-0 h-auto font-medium text-accent hover:text-white hidden"
                 >
                   {t.services.learnMore}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
